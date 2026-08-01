@@ -1,0 +1,25 @@
+import datetime
+
+print('BOOK BORROWING APPLICATION FORM')
+book_name = input("Please type the book's name: ")
+your_name = input("Please type your name: ")
+phone_number = input("Please type your phone number (numbers only):")
+date = input('Please type the total of days you want to borrow (numbers only):')
+
+correct_book_name = book_name.title().strip()
+correct_customer_name = your_name.upper().strip()
+
+today = datetime.date.today()
+deadline = today + datetime.timedelta(days= int(date))
+today_str = today.strftime("%d/%m/%Y")
+deadline_str = deadline.strftime("%d/%m/%Y")
+
+print('\n' + "="*40)
+print('BOOK LOAN REQUEST INFORMATION')
+print("="*40)
+print(f'Customer Name: {correct_customer_name}')
+print(f'Phone Number: {phone_number[0:4]} {phone_number[4:7]} {phone_number[7:]}')
+print(f'Book name: {correct_book_name}')
+print(f'Borrowing from: {today_str} | To: {deadline_str} ')
+print(f"ATTETION: PLEASE RETURN THE BOOK TO THE LIBRARY BEFORE 5 P.M {deadline_str}")
+print("="*40)

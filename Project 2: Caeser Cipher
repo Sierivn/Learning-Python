@@ -1,0 +1,32 @@
+def caesar(text, shift, encrypt=True):
+
+    if not isinstance(shift, int):
+        return 'Shift must be an integer value.'
+
+    if shift < 1 or shift > 25:
+        return 'Shift must be an integer between 1 and 25.'
+
+    if not encrypt: # This helps us decode the message when the encrypt = False
+        shift = - shift
+
+    alphabet = 'abcdefghijklmnopqrstuvwxyz'
+    number = '0123456789'
+    
+    shifted_alphabet = alphabet[shift:] + alphabet[:shift]
+    shifted_number = number[shift:] + number[:shift]
+
+    translation_table = str.maketrans(alphabet + alphabet.upper() + number, shifted_alphabet + shifted_alphabet.upper() + shifted_number)
+    encrypted_text = text.translate(translation_table)
+    return encrypted_text
+
+def encrypt(text, shift):
+    return caesar(text, shift)
+    
+def decrypt(text, shift):
+    return caesar(text, shift, encrypt=False)
+
+encrypted_text = encrypt('If you want better results, forget about setting goals. Focus on your system instead. (9/8/2026)', 2)
+print(encrypted_text)
+
+decrypted_text = decrypt(encrypted_text, 2)
+print(decrypted_text)

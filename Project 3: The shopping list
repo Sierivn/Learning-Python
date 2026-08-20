@@ -1,0 +1,77 @@
+shopping_list = ['eggs', 'milk', 'bread']
+store_items = ('eggs', 'milk', 'pork', 'shirmp', 'tuna', 'salmon',
+'beef', 'chicken', 'cheese', 'broccoli', 'carrot', 'potatoes', 'tomatoes',
+'apple', 'banana', 'orange', 'strawberry','rice', 'bread', 'pasta', 'oats' )
+
+def feature_1():
+    print(f'The shopping list: {shopping_list} \n') 
+
+def feature_2():
+    adding_item = input('Please add your item:')
+    print(f'The shopping list has included "{adding_item}"')
+    return shopping_list.append(adding_item)
+
+def feature_3():
+    num = 1
+    for items in shopping_list:
+        print(f'{num}. {items}')
+        num += 1
+    removing_item = int(input('Choose your item to remove (integer only): '))
+    if  removing_item <= num and removing_item > 0: 
+        print('The item has been removed')
+        return shopping_list.pop(removing_item - 1)
+    else: 
+        print('The item must be in the shopping list first, choose again')
+
+def feature_4():
+    searching_item = input('Enter your searching item: ')
+    if searching_item in store_items:
+        print("Your finding item is on the store's list")
+        if searching_item in shopping_list:
+            print("Your item has been on the shopping list")
+        else:
+            print("Your item is not on the shopping list, choose 2 to add it" )
+    else: 
+        print("Your finding item isn't on the store's list \n" 
+        "Please choose another item")
+
+def feature_5():
+    print('The shopping list is cleared')
+    return shopping_list.clear()
+
+def feature_6():
+    print("Thank you for using the shoppoing list app")
+
+
+option = 1
+while option != 6:
+    # Menu block
+    print('\n ==== SHOPPING LIST ==== \n' 
+    '1. View list \n' 
+    '2. Add item \n' 
+    '3. Remove item \n' 
+    '4. Check if item exists \n' 
+    '5. Clear list \n' 
+    '6. Exit \n')
+    try: 
+        option = int(input('Choose an option (number only): '))
+        # Feature block
+        if option == 1:
+            feature_1()
+        elif option == 2:
+            feature_2()
+        elif option == 3:
+            feature_3()
+        elif option == 4:
+            feature_4()
+        elif option == 5:
+            request = input('Do you want to clear your shipping list (Yes/ No): ')
+            if request == 'Yes' or request == 'yes':
+                feature_5()
+            else: 
+                print('Returning to the menu')
+                option = 1
+    except ValueError:
+        print("Please enter a valid whole number.")    
+else:
+    feature_6()

@@ -1,0 +1,41 @@
+shopping_list = ['milk', 'eggs', 'bread']
+
+# Counting the total of elements
+print(len(shopping_list))
+
+# Indexing and Slicing
+print(shopping_list[1])
+print(shopping_list[0:2])
+
+# Adding
+shopping_list.append(['apples','beef']) # Working only with one thing (list, element)
+print(shopping_list)
+
+shopping_list.extend(['butter', 'chocolate']) # Working with multiple 
+print(shopping_list)
+
+shopping_list.insert(3, 'oranges')
+print(shopping_list)
+
+# Removing
+shopping_list.remove(['apples', 'beef']) # When removing an element inside a list, you have to remove all.
+print(shopping_list)
+
+shopping_list.pop(3) # Delete an element in the index
+print(shopping_list)
+
+shopping_list.clear() # Delete all
+print(shopping_list) 
+
+
+
+num = [2,1,7,5,8,10,9]
+sorted_num = sorted(num) # Return a sorted sequence
+num.sort() # Sort in place
+# Sorting
+print(num) 
+print(sorted_num)
+
+# Reverse a list
+num.reverse()
+print(num)
